@@ -123,24 +123,4 @@ def fase(num):
     elif (a >= 0) and (b < 0):
         f += 2 * pi
     return f
-"""
-    Extension de la librería de números complejos, en donde se debe de agregar operaciones para vectore y matrices.
-    Adición de vectores complejos.
-    Inverso (aditivo) de un vector complejo.
-    Multiplicación de un escalar por un vector complejo.
-    Adición de matrices complejas.
-    Inversa (aditiva) de una matriz compleja.
-    Multiplicación de un escalar por una matriz compleja.
-    Transpuesta de una matriz/vector
-    Conjugada de una matriz/vector
-    Adjunta (daga) de una matriz/vector
-    Producto de dos matrices (de tamaños compatibles)
-    Función para calcular la "acción" de una matriz sobre un vector.
-    Producto interno de dos vectores
-    Norma de un vector
-    Distancia entre dos vectores
-    Revisar si una matriz es unitaria
-    Revisar si una matriz es Hermitiana
-    Producto tensor de dos matrices/vectores
-"""
 
