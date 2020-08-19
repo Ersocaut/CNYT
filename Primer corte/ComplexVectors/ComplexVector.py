@@ -105,3 +105,44 @@ def matrizAdjunta(mat):
         Return: Matriz resultante
     """
     return matrizConjugada(transpuesta(mat))
+
+def productoMatrices(mat1,mat2):
+    """
+        Consideramos:
+            mat1 := A
+            mat2 := B
+            Por ende, el número de columnas de A debe de coincidir con el número de filas de B
+        Param mat1: Primera matriz a operar
+        Param mat2: Segunda matriz a operar
+        Return: Matriz resultante
+    """
+    if (len(mat1[0]) == len(mat2)):
+        new = [[None  for i in range(len(mat2[0]))] for j in range(len(mat1))]
+        for i in range(len(mat1)):
+            for j in range(len(mat2[0])):
+                piv = [0,0]
+                for k in range(len(mat2)):
+                    mul = producto(mat1[i][k], mat2[k[j]])
+                    piv = smua(mul,piv)
+                new[i][j] = piv
+        return new
+
+def accion(mat,vec):
+    """
+        Param mat: Matriz a operar
+        Param vec: Vector a operar
+        Return: Número resultante
+    """
+    if (len(vec) == len(mat[0])):
+        new = [[0,0] for i in range(len(mat))]
+        for i in range(len(mat)):
+            for j in range(len(mat[0])):
+                piv = producto(mat[i][j],vector[j])
+                new[i] = suma(new[i],piv)
+        return new
+
+def productoInterno(vec1,vec2):
+    new = [0,0]
+    for i in range(len(vec1)):
+        new = suma(new,producto(vec1[i],vec2[i]))
+    return new
