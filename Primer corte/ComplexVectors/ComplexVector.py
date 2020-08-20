@@ -137,12 +137,23 @@ def accion(mat,vec):
         new = [[0,0] for i in range(len(mat))]
         for i in range(len(mat)):
             for j in range(len(mat[0])):
-                piv = producto(mat[i][j],vector[j])
+                piv = producto(mat[i][j],vec[j])
                 new[i] = suma(new[i],piv)
         return new
 
 def productoInterno(vec1,vec2):
+    """
+        Param vec1: Primer vector a operar
+        Param vec2: Segundo vector a operar
+        Return: Complejo resultante
+    """
     new = [0,0]
     for i in range(len(vec1)):
         new = suma(new,producto(vec1[i],vec2[i]))
     return new
+
+
+
+
+def norma(vec):
+    return abs(productoInterno(vec,vec)[0])**(1/2)
