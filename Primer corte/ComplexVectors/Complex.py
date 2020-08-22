@@ -5,26 +5,10 @@ e = 2.718281828459045
 def suma(num1,num2):
     """
         Param num1: Primer número complejo
-        Param bnum2: Segundo número complejo
+        Param num2: Segundo número complejo
         Return: Número complejo resultante
     """
-    a1,b1 = num1[0], num1[1]
-    a2,b2 = num2[0], num2[1]
-    a3 = a1 + a2
-    b3 = b1 + b2
-    return [a3, b3]
-
-def producto(num1,num2):
-    """
-        Param num1: Primer número complejo
-        Param bnum2: Segundo número complejo
-        Return: Número complejo resultante
-    """
-    a1,b1 = num1[0], num1[1]
-    a2,b2 = num2[0], num2[1]
-    a3 = (a1*a2) - (b1*b2)
-    b3 = (a1 * b2) + (a2 * b1)
-    return [a3, b3]
+    return [num1[0] + num2[0], num1[1] + num2[1]]
 
 def resta(num1,num2):
     """
@@ -32,11 +16,15 @@ def resta(num1,num2):
         Param bnum2: Segundo número complejo
         Return: Número complejo resultante
     """
-    a1,b1 = num1[0], num1[1]
-    a2,b2 = num2[0], num2[1]
-    a3 = a1 - a2
-    b3 = b1 - b2
-    return [a3, b3]
+    return [num1[0] - num2[0], num1[1] - num2[1]]
+
+def producto(num1,num2):
+    """
+        Param num1: Primer número complejo
+        Param bnum2: Segundo número complejo
+        Return: Número complejo resultante
+    """
+    return [num1[0] * num2[0] - num1[1] * num2[1] , num1[1] * num2[0] + num1[0] * num2[1]]
 
 def division(num1,num2):
     """
@@ -44,14 +32,9 @@ def division(num1,num2):
         Param num2: Segundo número complejo
         Return: Número complejo resultante
     """
-    a1,b1 = num1[0], num1[1]
-    a2,b2 = num2[0], num2[1]
-    piv = (a2**2)+(b2**2)
-    a3,b3 = 0,0
+    piv = (num2[0] ** 2) + (num2[1] ** 2)
     try:
-        a3 = ((a1 * a2) + (b1*b2)) / piv
-        b3 = ((a2 * b1) - (a1*b2)) / piv
-        return [a3, b3]
+        return [(num1[0] * num2[0] + num1[1] * num2[1]) / piv,(num2[0] * num1[1] - num1[0] * num2[1]) / piv]
     except ZeroDivisionError as error:
         print("Error:",error)
 
@@ -60,11 +43,7 @@ def modulo(num):
         Param num: Número complejo
         Return c: Valor del módulo del número
     """
-    a,b = num[0],num[1]
-    a = a**2
-    b = b**2
-    c = (a + b)**(1/2)
-    return c
+    return ((num[0] ** 2) + (num[1] ** 2)) ** (1/2)
 
 def conjugado(num):
     """
@@ -123,4 +102,3 @@ def fase(num):
     elif (a >= 0) and (b < 0):
         f += 2 * pi
     return f
-

@@ -21,10 +21,10 @@ class Test(unittest.TestCase):
         self.assertEqual(resta(c,d),[-4,2])
 
     def testDiv(self):
-        a,b = [5,5],[5,6]
-        c,d = [1,10],[5,8]
-        self.assertEqual(division(a,b),[0.9016393442622951, -0.08196721311475409])
-        self.assertEqual(division(c,d),[0.9550561797752809, 0.47191011235955055])
+        a,b = [8,9],[2,1]
+        c,d = [3,2],[-1,2]
+        self.assertEqual(division(a,b),[5,2 ])
+        self.assertEqual(division(c,d),[0.2,-1.6])
 
     def testMod(self):
         a = [5,5]
