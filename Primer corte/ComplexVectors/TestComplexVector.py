@@ -36,10 +36,50 @@ class Test(unittest.TestCase):
 
     def testMatrizAdjunta(self):
         self.assertEqual(matrizAdjunta([[b,a,a],[a,b,a]]),[[[2, -4], [1, -3]], [[1, -3], [2, -4]], [[1, -3], [1, -3]]])
+
     def testMultiplicaMatrices(self):
         self.assertEqual(productoMatrices([[a,a],[b,b]],[[b,a],[a,b]]),[[[-18,16],[-18,16]],[[-22,26],[-22,26]]])
+
     def testAccion(self):
         a,b,c,d,e = [1,4],[4,0],[7,-1],[0,1],[5,6]
-        self.assertEqual(accion([[a,c,d],[b,c,d],[d,b,e]],[e,d,c]),[[-17,40],[49,27],[35,46]])
+        A,V = [[[0,0],[0,-2]],[[0,2],[0,0]]],[[0,1],[1,0]]
+        self.assertEqual(accion([[a,c,d],[b,c,b],[d,b,e]],[e,d,c]),[[-17,40],[49,27],[35,46]])
+
+    def testNorma(self):
+        a,b = [3,0],[-6,0]
+        c = [2,0]
+        N = [[6.5,2.7],[3.1,-3.8]]
+        self.assertEqual(norma([a,b,c]),(49)**(1/2))
+        self.assertEqual(norma(N),5.489080068645383)
+
+    def testProductoInterno(self):
+        a,b = [3,0],[-6,0]
+        c = [2,0]
+        self.assertEqual(productoInterno([a,b,c],[a,b,c]),[49,0])
+
+    def testDistancia(self):
+        a,b = [3,0],[1,0]
+        c,d = [2,0],[-1,0]
+        self.assertEqual(distancia([a,b,c],[c,c,d]),11**(1/2))
+
+    def testIsUnitary(self):
+        a,b = [1,0],[0,0]
+        c = [0,1]
+        self.assertTrue(isUnitary([[c,b],[b,c]]))
+        self.assertTrue(isUnitary([[a,b],[b,a]]))
+        self.assertFalse(isUnitary([[a,d],[b,a]]))
+
+    def testHermitian(self):
+        a,b = [7,0],[6,5]
+        c,d = [6,-5],[-3,0]
+        e,f = [1,0],[0,0]
+        self.assertTrue(isHermitian([[a,b],[c,d]]))
+        self.assertFalse(isHermitian([[f,f],[e,e]]))
+
+    def testTensor(self):
+        mat1 = [[2,0],[3,0]]
+        mat2 = [[4,0],[6,0],[3,0]]
+        self.assertEqual(tensor(mat1,mat2),[[8,0],[12,0],[6,0],[12,0],[18,0],[9,0]])
+        
 if __name__ == "__main__":
     unittest.main()
