@@ -33,18 +33,15 @@ def vectorInverso(vec):
         vec[i][0] = - act[0]
     return vec
 
-def EscalarPorVector(esc,vec):
+def escalarPorVector(esc,vec):
     """
-        Param esc: (int,float) Escalar a operar 
+        Param esc: Número a operar
         Param vec: Vector a operar
         Return: Vector resultante
     """
-    mul = [esc,0]
-    res = vec[::]
-    for i in res:
-        for j in i:
-            j = producto(mul,j)
-    return res
+    for i in range(len(vec)):
+        vec[i] = producto(esc,vec[i])
+    return vec
 
 def sumaMatrices(mat1,mat2):
     """
@@ -54,7 +51,7 @@ def sumaMatrices(mat1,mat2):
     """
     for i in range(len(mat1)):
         for j in range(len(mat1[0])):
-            mat[i][j] = suma(mat1[i][j],mat2[i][j])
+            mat1[i][j] = suma(mat1[i][j],mat2[i][j])
     return mat1
 
 def matrizInversa(mat):
@@ -68,14 +65,13 @@ def matrizInversa(mat):
 
 def escalarPorMatriz(esc,mat):
     """
-        Param esc: (int,float) Escalar a operar
+        Param esc: Escalar a operar
         Param mat: Matriz a operar
         Return: Matriz resultante
     """
-    mult = [esc,0]
     for i in range(len(mat)):
         for j in range(len(mat[0])):
-            mat[i][j] = producto(mult,mat[i][j])
+            mat[i][j]  = producto(esc,mat[i][j])
     return mat
 
 def transpuesta(mat):
@@ -117,13 +113,13 @@ def productoMatrices(mat1,mat2):
         Return: Matriz resultante
     """
     if (len(mat1[0]) == len(mat2)):
-        new = [[None  for i in range(len(mat2[0]))] for j in range(len(mat1))]
+        new = [[[0,0]  for i in range(len(mat2[0]))] for j in range(len(mat1))]
         for i in range(len(mat1)):
             for j in range(len(mat2[0])):
                 piv = [0,0]
                 for k in range(len(mat2)):
-                    mul = producto(mat1[i][k], mat2[k[j]])
-                    piv = smua(mul,piv)
+                    mul = producto(mat1[i][k],mat2[k][j])
+                    piv = suma(mul,piv)
                 new[i][j] = piv
         return new
 
