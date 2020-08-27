@@ -1,4 +1,10 @@
 # __CNYT__
+---
+## Built in:
+
+> Python 3
+>
+>3.7 (32 bit) IDLE
 
 ## __Contributors:__
 
