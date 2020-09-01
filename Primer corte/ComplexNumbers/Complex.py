@@ -1,5 +1,5 @@
 from math import pi as pi
-from math import atan as arctan
+from math import atan2 as arctan
 global e
 e = 2.718281828459045
 def suma(num1,num2):
@@ -117,7 +117,7 @@ def fase(num):
         Return f: Fase del número
     """
     a,b = num[0], num[1]
-    f = arctan(b/a)
+    f = arctan(b,a)
     if (a < 0 ):
         f += pi
     elif (a >= 0) and (b < 0):
