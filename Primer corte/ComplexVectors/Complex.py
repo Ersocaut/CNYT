@@ -1,22 +1,18 @@
 from math import pi as pi
-from math import atan as arctan
+from math import atan2 as arctan
 global e
 e = 2.718281828459045
 def suma(num1,num2):
     """
         Param num1: Primer número complejo
-        Param num2: Segundo número complejo
-        Return: Número complejo resultante
-    """
-    return [num1[0] + num2[0], num1[1] + num2[1]]
-
-def resta(num1,num2):
-    """
-        Param num1: Primer número complejo
         Param bnum2: Segundo número complejo
         Return: Número complejo resultante
     """
-    return [num1[0] - num2[0], num1[1] - num2[1]]
+    a1,b1 = num1[0], num1[1]
+    a2,b2 = num2[0], num2[1]
+    a3 = a1 + a2
+    b3 = b1 + b2
+    return [a3, b3]
 
 def producto(num1,num2):
     """
@@ -24,7 +20,23 @@ def producto(num1,num2):
         Param bnum2: Segundo número complejo
         Return: Número complejo resultante
     """
-    return [num1[0] * num2[0] - num1[1] * num2[1] , num1[1] * num2[0] + num1[0] * num2[1]]
+    a1,b1 = num1[0], num1[1]
+    a2,b2 = num2[0], num2[1]
+    a3 = (a1*a2) - (b1*b2)
+    b3 = (a1 * b2) + (a2 * b1)
+    return [a3, b3]
+
+def resta(num1,num2):
+    """
+        Param num1: Primer número complejo
+        Param bnum2: Segundo número complejo
+        Return: Número complejo resultante
+    """
+    a1,b1 = num1[0], num1[1]
+    a2,b2 = num2[0], num2[1]
+    a3 = a1 - a2
+    b3 = b1 - b2
+    return [a3, b3]
 
 def division(num1,num2):
     """
@@ -32,9 +44,14 @@ def division(num1,num2):
         Param num2: Segundo número complejo
         Return: Número complejo resultante
     """
-    piv = (num2[0] ** 2) + (num2[1] ** 2)
+    a1,b1 = num1[0], num1[1]
+    a2,b2 = num2[0], num2[1]
+    piv = (a2**2)+(b2**2)
+    a3,b3 = 0,0
     try:
-        return [(num1[0] * num2[0] + num1[1] * num2[1]) / piv,(num2[0] * num1[1] - num1[0] * num2[1]) / piv]
+        a3 = ((a1 * a2) + (b1*b2)) / piv
+        b3 = ((a2 * b1) - (a1*b2)) / piv
+        return [a3, b3]
     except ZeroDivisionError as error:
         print("Error:",error)
 
@@ -43,7 +60,11 @@ def modulo(num):
         Param num: Número complejo
         Return c: Valor del módulo del número
     """
-    return ((num[0] ** 2) + (num[1] ** 2)) ** (1/2)
+    a,b = num[0],num[1]
+    a = a**2
+    b = b**2
+    c = (a + b)**(1/2)
+    return c
 
 def conjugado(num):
     """
@@ -96,7 +117,7 @@ def fase(num):
         Return f: Fase del número
     """
     a,b = num[0], num[1]
-    f = arctan(b/a)
+    f = arctan(b,a)
     if (a < 0 ):
         f += pi
     elif (a >= 0) and (b < 0):
