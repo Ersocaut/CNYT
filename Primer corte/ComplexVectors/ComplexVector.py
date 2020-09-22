@@ -223,16 +223,16 @@ def tensor(mat1,mat2):
         Return: Matriz resultante
     """
     tem = []
-    if (type(mat1[0]) is int) and (type(mat2[0]) is int):
+    if (type(mat1[0][0]) is int) and (type(mat2[0][0]) is int):
         for i in range(len(mat1)):
             for j in range(len(mat2)):
-                tem.append(producto([mat1[i],0],[mat2[j],0]))
+                tem.append(producto(mat1[i],mat2[j]))
         return tem
     elif (len(mat1) == len(mat1[0])) and (len(mat2) == len(mat2[0])):
         for i in range(len(mat1)):
             for j in range(len(mat2)):
                 piv = []
                 for k in range(len(mat1[0])):
-                    piv.append(escalarPorVector(mat1[i][j][:],mat2[j][:]))
+                    piv += escalarPorVector(mat1[i][k][:],mat2[j][:])
                 tem.append(piv)
         return tem
