@@ -4,7 +4,9 @@
 
 > Python 3
 >
->3.7 (32 bit) IDLE
+>The first part of the repository was made on 3.7 (32 bit) IDLE
+>
+>However, for some features and conveniences it was later built on 3.8 (32 bit) IDLE
 
 ## __Contributors:__
 
@@ -44,7 +46,7 @@
 
 - Execute the command ```git commit -m "XX"```, where XX must be an explanation of what you are going to push on the repository.
 
-- EXecute the command ```git push origin master```, to finally upload those changes to the remote repository.
+- Execute the command ```git push origin master```, to finally upload those changes to the remote repository.
 
 ### Download the last update of the repository as a contributor
 
@@ -78,6 +80,11 @@ Librería de Números complejos que cumple con:
   * Conversión de Polar a Cartesiano.
   * Conversión de Cartesiano a Polar.
   * Fase de un número.
+  
+#### Pruebas relacionadas:
+
+![](https://github.com/Ersocaut/CNYT/blob/master/_resources/ComplexTest.png)
+
 ---
 ### ComplexVectors:
 
@@ -93,7 +100,7 @@ ComplexVector = [Complex,Complex,Complex]
 
 ComplexMatrix = [ComplexVector,ComplexVector,ComplexVector]
 ```
-librería de Vectores y Matrices complejas que cumple con:
+Librería de Vectores y Matrices complejas que cumple con:
  * Adición de vectores complejos.
  * Inverso de un vector complejo.
  * Multiplicación de un escalar por un vector complejo.
@@ -111,4 +118,49 @@ librería de Vectores y Matrices complejas que cumple con:
  * Revisar si una matriz es unitaria.
  * Revisar si una matriz es hermitiana.
  * Producto tensor de dos matrices/vectores.
+
+#### Pruebas relacionadas:
+
+![](https://github.com/Ersocaut/CNYT/blob/master/_resources/ComplexVectorTest.png)
+
 ---
+## __Segundo corte__
+---
+### ClassicToQuantum
+
+Realizamos las siguientes consideraciones de un sistema:
+
+1. Un sistema está compuesto tanto por un vector, como por una matriz.
+
+2. Este varía con el tiempo, que es representado en unidades enteras.
+
+3. Las siguientes consideraciones del código:
+
+```
+#Consideración de un número complejo
+Complex = [a,b]
+
+#Consideración de un vector complejo
+ComplexVector = [Complex,Complex,Complex]
+
+#Consideración de una matriz compleja
+ComplexMatrix = [ComplexVector,ComplexVector,ComplexVector]
+
+#Consideración de las unidades del tiempo
+times = int(number) #type(number) is int
+
+#Las dimensiones de la matriz y el vector están relacionados de la siguiente forma
+len(ComplexMatrix) == len(ComplexVector)
+```
+Librería de sistemas probabilisticos cuánticos que cumple con:
+* Los experimentos de la canicas con coeficiente booleanos.
+* Experimentos de las múltiples rendijas clásico probabilístico, con más de dos rendijas.
+* Experimento de las múltiples rendijas cuántico.
+* Cree una función para graficar con un diagrama de barras que muestre las probabilidades de un vector de estados. La imagen se debe poder guardar en el computador con un formato de imágen.
+
+#### Pruebas relacionadas:
+
+![](https://github.com/Ersocaut/CNYT/blob/master/_resources/ClassicToQuantumTest.png)
+
+---
+
