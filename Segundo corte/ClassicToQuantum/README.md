@@ -30,7 +30,7 @@ Plantearemos el siguiente ejemplo:
 
 Consideramos cada caja como un nodo del grafo, las dirección a donde se mueven las canicas son los arcos, y la cantidad de la misma que se mueve es el peso del arco. Por lo que el resultante del experimentado planteado previamente es:
 
-![](https://github.com/Ersocaut/CNYT/blob/master/_resources/DirectedGraph.png)
+![](https://github.com/Ersocaut/CNYT/blob/master/image/DirectedGraph.png)
 
 Ahora, al relacionarlo con el mundo cuántico, se agregan unas ciertas normas a estos grafos:
 
@@ -42,13 +42,13 @@ Ahora, al relacionarlo con el mundo cuántico, se agregan unas ciertas normas a 
 
 Así mismo, este grafo se puede representar en una matriz, del caso que estamos llevando, es la siguiente:
 
-![](https://github.com/Ersocaut/CNYT/blob/master/_resources/SystemMatrix.png)
+![](https://github.com/Ersocaut/CNYT/blob/master/image/SystemMatrix.png)
 
 Para poder inicializar el sistema, se debe de definir un estado inicial, que debe de ser un vector, de dimensión igual a la cantidad de filas de la matriz del sistema.
 
 Este puede tener las cantidades iniciales de canicas deseada en las posiciones deseadas:
 
-![](https://github.com/Ersocaut/CNYT/blob/master/_resources/SystemVector.png)
+![](https://github.com/Ersocaut/CNYT/blob/master/image/SystemVector.png)
 
 ## ¿Cómo se simula el paso del tiempo en el sistema?
 
