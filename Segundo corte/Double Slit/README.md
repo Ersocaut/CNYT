@@ -3,7 +3,11 @@
 Planteado originalmente por Thomas Young en 1801, con la intención de determinar el comportamiento de la luz, si es una onda o una partícula.
 Realizado en una cámara oscura en la cual entra un solo haz de luz, que por medio de una pared intermedia de dos rendijas, debe de pasar por alguna de las dos para posteriormente encontrarse con una placa.
 
-![Explicación tablero]()
+![](https://github.com/Ersocaut/CNYT/blob/master/image/DSExplicacion1.png)
+
+![](https://github.com/Ersocaut/CNYT/blob/master/image/DSExplicacion2.png)
+
+![](https://github.com/Ersocaut/CNYT/blob/master/image/DSExplicacion3.png)
 
 ## Experimento en casa
 
@@ -48,7 +52,7 @@ Para este método necesitaremos, además de los materiales base:
 
 Obtendremos el resultado:
 
-![Primer resultado](https://i.pinimg.com/474x/bb/ab/fc/bbabfce59408012553461101ef6a8d47.jpg)
+![Primer resultado](https://github.com/Ersocaut/CNYT/blob/master/image/DSPrimerResultado.jpg)
 
 ## Segundo método.
 
@@ -68,7 +72,7 @@ Para este método necesitaremos, además de los materiales base:
 
 Obtendremos el resultado:
 
-![Segundo resultado](https://i.pinimg.com/474x/bb/ab/fc/bbabfce59408012553461101ef6a8d47.jpg)
+![Segundo resultado](https://github.com/Ersocaut/CNYT/blob/master/image/DSSegundoResultado.jpg)
 
 ## Sistema.
 
@@ -76,7 +80,7 @@ Este experimento puede ser representado como sistemas probabilísticos, y de la 
 
 ![Grafo](https://github.com/Ersocaut/CNYT/blob/master/image/DSSistema.png)
 
-![Sistema Probabilístico]()
+![Sistema Probabilístico](https://github.com/Ersocaut/CNYT/blob/master/image/DSMatriz.png)
 
 Con tan solo esta información ya podemos abstraer e implementarlo en nuestra librería.
 
