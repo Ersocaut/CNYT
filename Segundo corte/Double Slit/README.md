@@ -58,7 +58,7 @@ Para este método necesitaremos, además de los materiales base:
  - Marcador Negro.
  - Bisturí.
 
- ![Kit](https://i.pinimg.com/474x/bb/ab/fc/bbabfce59408012553461101ef6a8d47.jpg)
+ ![Kit](https://github.com/Ersocaut/CNYT/blob/master/image/DSKit2.jpg)
 
 ### Procedimiento:
 
