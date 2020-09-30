@@ -83,7 +83,7 @@ Librería de Números complejos que cumple con:
   
 #### Pruebas relacionadas:
 
-![](https://github.com/Ersocaut/CNYT/blob/master/_resources/ComplexTest.png)
+![](https://github.com/Ersocaut/CNYT/blob/master/image/ComplexTest.png)
 
 ---
 ### ComplexVectors:
@@ -121,7 +121,7 @@ Librería de Vectores y Matrices complejas que cumple con:
 
 #### Pruebas relacionadas:
 
-![](https://github.com/Ersocaut/CNYT/blob/master/_resources/ComplexVectorTest.png)
+![](https://github.com/Ersocaut/CNYT/blob/master/image/ComplexVectorTest.png)
 
 ---
 ## __Segundo corte__
@@ -160,7 +160,7 @@ Librería de sistemas probabilisticos cuánticos que cumple con:
 
 #### Pruebas relacionadas:
 
-![](https://github.com/Ersocaut/CNYT/blob/master/_resources/ClassicToQuantumTest.png)
+![](https://github.com/Ersocaut/CNYT/blob/master/image/ClassicToQuantumTest.png)
 
 ---
 
