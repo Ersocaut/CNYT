@@ -13,29 +13,26 @@ Para los métodos realizados en este caso, necesitaremos los siguientes material
 
  - 1 Caja pequeña.
 
- ![Foto caja](https://i.pinimg.com/474x/bb/ab/fc/bbabfce59408012553461101ef6a8d47.jpg)
+ ![Foto caja](https://github.com/Ersocaut/CNYT/blob/master/image/DSCaja.jpg)
  
  - Cartulina blanca o negra.
 
- ![Foto Cartulina Negra](https://i.pinimg.com/474x/bb/ab/fc/bbabfce59408012553461101ef6a8d47.jpg)![Foto cartulina negra](https://i.pinimg.com/474x/bb/ab/fc/bbabfce59408012553461101ef6a8d47.jpg)
+ ![Foto Cartulina Negra](https://github.com/Ersocaut/CNYT/blob/master/image/DSCartulinaNegra.jpg)![Foto cartulina negra](https://github.com/Ersocaut/CNYT/blob/master/image/DSCartulinaBlanca.jpg)
 
  - Puntero Laser.
 
- ![Foto Laser](https://i.pinimg.com/474x/bb/ab/fc/bbabfce59408012553461101ef6a8d47.jpg)
+ ![Foto Laser](https://github.com/Ersocaut/CNYT/blob/master/image/DSLaser.jpg)
 
 ## Primer método.
 
 Para este método necesitaremos, además de los materiales base:
 
  - Papel aluminio.
-
- ![Foto Aluminio](https://i.pinimg.com/474x/bb/ab/fc/bbabfce59408012553461101ef6a8d47.jpg)
-
  - Bisturí.
  - Tijeras.
  - Regla.
 
- ![Kit](https://i.pinimg.com/474x/bb/ab/fc/bbabfce59408012553461101ef6a8d47.jpg)
+ ![Kit](https://github.com/Ersocaut/CNYT/blob/master/image/DSKit1.jpg)
 
 ### Procedimiento:
 
@@ -76,6 +73,8 @@ Obtendremos el resultado:
 ## Sistema.
 
 Este experimento puede ser representado como sistemas probabilísticos, y de la misma forma, llevado a nuestra librería de la siguiente forma:
+
+![Grafo](https://github.com/Ersocaut/CNYT/blob/master/image/DSSistema.png)
 
 ![Sistema Probabilístico]()
 
