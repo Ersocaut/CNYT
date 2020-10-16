@@ -26,7 +26,7 @@ def restaVectores(vec1,vec2):
 def productoVectores(vec1, vec2):
     acum = [0,0]
     for i in range(len(vec1)):
-        acum = suma(acum(producto(vec1[i],vec2[i])))
+        acum = suma(acum, (producto(vec1[i],vec2[i])))
     return acum
 
 def vectorInverso(vec):

@@ -16,7 +16,7 @@ def Long(vec):
 def normalizar(vec):
     long = Long(vec)
     for i in range(len(vec)):
-        vec[i] = [vec[i][0]/long,vec[i][1]/long]
+        vec[i] = [vec[i][0]/long, vec[i][1]/long]
     return vec
 
 def bra(vec):
