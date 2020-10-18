@@ -1,257 +1,261 @@
 from Complex import *
+import math
 
-def sumaVectores(vec1,vec2):
-    """
-        Adición de vectores complejos.
-        Param vec1: Primer vector a operar
-        Param vec2: Segundo vector a operar
-        Return: Vector resultante
-    """
-    if (len(vec1) == len(vec2)):
-        for i in range(len(vec1)):
-            vec1[i] = suma(vec1[i],vec2[i])
-        return vec1
+def subVect(vect1, vect2):
+    length = len(vect1)
 
-def restaVectores(vec1,vec2):
-    """
-        Param vec1: Primer vector a operar
-        Param vec2: Segundo vector a operar
-        Return: Vector resultante
-    """
-    if (len(vec1) == len(vec2)):
-        for i in range(len(vec1)):
-            vec1[i] = resta(vec1[i],vec2[i])
-        return vec1
+    if (length == len(vect2)):
 
-def productoVectores(vec1, vec2):
-    acum = [0,0]
-    for i in range(len(vec1)):
-        acum = suma(acum, (producto(vec1[i],vec2[i])))
-    return acum
+        for x in range(length):
+            vect1[x] = sub(vect1[x], vect2[x])
 
-def vectorInverso(vec):
-    """
-        Inverso (aditivo) de un vector complejo.
-        Param vec1: Vector a operar
-        Return: Vector Inverso
-    """
-    for i in range(len(vec)):
-        act = vec[i]
-        vec[i] = conjugado(act)
-        vec[i][0] = - act[0]
-    return vec
+        return vect1
 
-def vectorAdjunto(vec):
-    for i in range(len(vec)):
-        vec[i] = conjugado(vec[i])
-    return vec
 
-def escalarPorVector(esc,vec):
-    """
-        Multiplicación de un escalar por un vector complejo.
-        Param esc: Número a operar
-        Param vec: Vector a operar
-        Return: Vector resultante
-    """
-    for i in range(len(vec)):
-        vec[i] = producto(esc,vec[i])
-    return vec
+def sumVect(vect1, vect2):
+    length = len(vect1)
 
-def sumaMatrices(mat1,mat2):
-    """
-        Adición de matrices complejas.
-        Param mat1: Primera matriz a operar
-        Param mat2: Segundo vector a operar
-        Return: Matriz resultante
-    """
-    for i in range(len(mat1)):
-        for j in range(len(mat1[0])):
-            mat1[i][j] = suma(mat1[i][j],mat2[i][j])
+    if (length == len(vect2)):
+
+        for x in range(length):
+            vect1[x] = suma(vect1[x], vect2[x])
+
+        return vect1
+
+
+def multVector(vect1, vect2):
+    acu = [0, 0]
+    for c in range(len(vect1)):
+        acu = suma(acu, multComplexNumber(vect1[c], vect2[c]))
+    return acu
+
+
+def adjointVector(vector):
+    for x in range(len(vector)):
+        vector[x] = conjugated(vector[x])
+    return vector
+
+
+def inverseVect(vect):
+    length = len(vect)
+    for x in range(length):
+        current = vect[x]
+        vect[x] = conjugated(current)
+        vect[x][0] = - current[0]
+
+    return vect
+
+
+def escalVect(vect, complexNumber):
+    length = len(vect)
+
+    for x in range(length):
+        vect[x] = multComplexNumber(complexNumber, vect[x])
+
+    return vect
+
+
+def sumMat(mat1, mat2):
+    row, colum = len(mat1), len(mat1[0])
+    for i in range(row):
+        for j in range(colum):
+            mat1[i][j] = suma(mat1[i][j], mat2[i][j])
+
     return mat1
 
-def restaMatrices(mat1, mat2):
-    """
-        Resta de matrices
-        Param mat1: Primera matriz a operar
-        Param mat2: Segunda matriz a operar
-        Return Matriz resultante
-    """
-    for i in range(len(mat1)):
-        mat1[i] = restaVectores(mat1[i], mat2[i])
+
+def subMat(mat1, mat2):
+    row, colum = len(mat1), len(mat1[0])
+
+    for i in range(row):
+        mat1[i] = subVect(mat1[i], mat2[i])
     return mat1
 
-def matrizInversa(mat):
-    """
-        Inversa (aditiva) de una matriz compleja.
-        Param mat: Matriz a operar
-        Return: Matriz resultante
-    """
-    for i in range(len(mat)):
-        mat[i] = vectorInverso(mat[i])
+
+def inverseMat(mat):
+    row, colum = len(mat), len(mat[0])
+
+    for i in range(row):
+        mat[i] = inverseVect(mat[i])
+
     return mat
 
-def escalarPorMatriz(esc,mat):
-    """
-        Multiplicación de un escalar por una matriz compleja.
-        Param esc: Escalar a operar
-        Param mat: Matriz a operar
-        Return: Matriz resultante
-    """
-    for i in range(len(mat)):
-        for j in range(len(mat[0])):
-            mat[i][j]  = producto(esc,mat[i][j])
+
+def multiEscalMat(complexNumber, mat):
+    row, column = len(mat), len(mat[0])
+
+    for i in range(row):
+        for j in range(column):
+            mat[i][j] = multComplexNumber(complexNumber, mat[i][j])
+
     return mat
 
-def transpuesta(mat):
-    """
-        Transpuesta de una matriz/vector
-        Param mat: Matriz a operar
-        Return: Matriz resultante
-    """
-    temp = [[0 for i in range(len(mat))]for j in range(len(mat[0]))]
-    for i in range(len(mat[0])):
-        for j in range(len(mat)):
-            temp[i][j] = mat[j][i]
-    return temp
 
-def matrizConjugada(mat):
-    """
-        Conjugada de una matriz/vector
-        Param mat: Matriz a operar
-        Return: Matriz Conjugada
-    """
-    for i in range(len(mat)):
-        for j in range(len(mat[0])):
-            mat[i][j] = conjugado(mat[i][j])
-    return mat
+def transpMatrix(matrix):
+    row, col = len(matrix), len(matrix[0])
 
-def matrizAdjunta(mat):
-    """
-        Adjunta (daga) de una matriz/vector
-        Param mat: Matriz a operar
-        Return: Matriz resultante
-    """
-    return matrizConjugada(transpuesta(mat))
+    if (type(matrix[0][0]) is int):
+        return matrix
 
-def productoMatrices(mat1,mat2):
-    """
-        Producto de dos matrices (de tamaños compatibles)
-        Consideramos:
-            mat1 := A
-            mat2 := B
-            Por ende, el número de columnas de A debe de coincidir con el número de filas de B
-        Param mat1: Primera matriz a operar
-        Param mat2: Segunda matriz a operar
-        Return: Matriz resultante
-    """
-    if (len(mat1[0]) == len(mat2)):
-        new = [[[0,0]  for i in range(len(mat2[0]))] for j in range(len(mat1))]
-        for i in range(len(mat1)):
-            for j in range(len(mat2[0])):
-                piv = [0,0]
-                for k in range(len(mat2)):
-                    mul = producto(mat1[i][k],mat2[k][j])
-                    piv = suma(mul,piv)
-                new[i][j] = piv
-        return new
+    answ = [[0 for x in range(row)] for t in range(col)]
 
-def accion(mat,vec):
-    """
-        Función para calcular la "acción" de una matriz sobre un vector.
-        Param mat: Matriz a operar
-        Param vec: Vector a operar
-        Return: Número resultante
-    """
-    if (len(vec) == len(mat[0])):
-        new = [[0,0] for i in range(len(mat))]
-        for i in range(len(mat)):
-            for j in range(len(mat[0])):
-                piv = producto(mat[i][j],vec[j])
-                new[i] = suma(new[i],piv)
-        return new
+    for i in range(col):
+        for j in range(row):
+            answ[i][j] = matrix[j][i]
 
-def productoInterno(vec1,vec2):
-    """
-        Producto interno de dos vectores
-        Param vec1: Primer vector a operar
-        Param vec2: Segundo vector a operar
-        Return: Complejo resultante
-    """
-    return productoVectores(vectorAdjunto(vec1), vec2)
+    return answ
 
-"""
-"""
 
-def norma(vec):
-    """
-        Norma de un vector
-        Param vec: Vector a operar
-        Return: Numero entero
-    """
-    return abs(productoInterno(vec,vec)[0])**(1/2)
+def conjugatedMatrix(matrix):
+    row, col = len(matrix), len(matrix[0])
 
-def distancia(vec1,vec2):
-    """
-        Distancia entre dos vectores
-        Param vec1: Primer vector a operar
-        Param vec2: Segundo vector a operar
-        Return: Número complejo
-    """
-    return norma(restaVectores(vec1,vec2))
+    if (type(matrix[0][0]) is int):
+        for x in range(row):
+            matrix[x] = conjugated(matrix[x])
+        return matrix
 
-def Identity(mat):
-    """
-        Creacion de una matriz identidad
-        Param mat: Matriz que indica el tamaño
-        Return: Matriz identidad
-    """
-    iden = [[[0,0]for i in range(len(mat[0]))] for j in range(len(mat))]
-    for i in range(len(iden)):
-        for j in range(len(iden[0])):
+    for i in range(row):
+        for j in range(col):
+            matrix[i][j] = conjugated(matrix[i][j])
+
+    return matrix
+
+
+def adjointMatrix(matrix):
+    answ = conjugatedMatrix(transpMatrix(matrix))
+    return answ
+
+
+def multiplicaMat(mat1, mat2):
+    row1, col1 = len(mat1), len(mat1[0])
+    row2, col2 = len(mat2), len(mat2[0])
+
+    if (col1 == row2):
+
+        answ = [[(0, 0) for t in range(col2)] for x in range(row1)]
+
+        for i in range(row1):
+            for j in range(col2):
+
+                current = (0, 0)
+
+                for k in range(row2):
+                    mult = multComplexNumber(mat1[i][k], mat2[k][j])
+
+                    current = suma(current, mult)
+
+                answ[i][j] = current
+
+        return answ
+    print("Las dimensiones de las matrices, no son los adecuados para su multiplicacion")
+
+
+def actionBoolMatrixOnVector(matrix, vector):
+    row, col = len(matrix), len(matrix[0])
+    length = len(vector)
+
+    if (col == length):
+        answ = [False for c in range(row)]
+
+        for i in range(row):
+            And = True
+
+            for j in range(col):
+                And = matrix[i][j] and vector[j]
+                answ[i] = answ[i] or And
+
+        return answ
+    print("Las dimensiones de las matrices, no son los adecuados para su multiplicacion")
+
+
+def actionMatrixOnVector(matrix, vector):
+    row, col = len(matrix), len(matrix[0])
+    length = len(vector)
+
+    if (col == length):
+        answ = [[0, 0] for x in range(row)]
+
+        for i in range(row):
+            for j in range(col):
+                mult = multComplexNumber(matrix[i][j], vector[j])
+                answ[i] = suma(answ[i], mult)
+
+        return answ
+    print("Las dimensiones de las matrices, no son los adecuados para su multiplicacion")
+
+
+def internalProduct(vector1, vector2):
+    return multVector(adjointVector(vector1), vector2)
+
+
+def normVector(vector):
+    answ = math.sqrt(abs(internalProduct(vector, vector)[0]))
+
+    return answ
+
+
+def distVector(vector1, vector2):
+    answ = normVector(subVect(vector1, vector2))
+
+    return answ
+
+
+def identityMatrix(matrix):
+    row, column = len(matrix), len(matrix[0])
+
+    matrix = [[[] for i in range(column)] for j in range(row)]
+
+    for i in range(row):
+        for j in range(column):
             if i == j:
-                iden[i][j] = [1,0]
-    return iden
+                matrix[i][j] = [1, 0]
+            else:
+                matrix[i][j] = [0, 0]
+    return matrix
 
-def isUnitary(mat):
-    """
-        Revisar si una matriz es unitaria
-        Param mat: Matriz a evaluar
-        Return: Boolean := True (Es unitaria), False (No es unitaria)
-    """
-    if (len(mat) != len(mat[0])):
-        return False
-    else:
-        iden = Identity(mat)
-        adj = matrizAdjunta(mat)
-        if productoMatrices(mat,adj) == iden:
-            return True
-        return False
-    
-def isHermitian(mat):
-    """
-        Revisar si una matriz es Hermitiana
-        Param mat: Matriz a evaluar
-        Return: Boolean True (Es hermitiana), False (No es Hermitiana)
-    """
-    return mat == matrizAdjunta(mat)
 
-def tensor(mat1,mat2):
-    """
-        Param mat1: Primera matriz a evaluar
-        Param mat2: Segunda matriz a evaluar
-        Return: Matriz resultante
-    """
-    tem = []
-    if (type(mat1[0][0]) is int) and (type(mat2[0][0]) is int):
-        for i in range(len(mat1)):
-            for j in range(len(mat2)):
-                tem.append(producto(mat1[i],mat2[j]))
-        return tem
-    elif (len(mat1) == len(mat1[0])) and (len(mat2) == len(mat2[0])):
-        for i in range(len(mat1)):
-            for j in range(len(mat2)):
-                piv = []
-                for k in range(len(mat1[0])):
-                    piv += escalarPorVector(mat1[i][k][:],mat2[j][:])
-                tem.append(piv)
-        return tem
+def isUnitary(matrix):
+    row, col = len(matrix), len(matrix[0])
+
+    if row == col:
+        adjoint = adjointMatrix(matrix)
+
+        return (multiplicaMat(matrix, adjoint) == identityMatrix(matrix)) and (
+                    multiplicaMat(matrix, adjoint) == multiplicaMat(adjoint, matrix))
+
+
+def isHermitan(matrix):
+    answ = adjointMatrix(matrix)
+
+    return str(answ) == str(matrix)
+
+
+def tensorProduct(matrix1, matrix2):
+    fil1, col1 = len(matrix1), len(matrix1[0])
+    fil2, col2 = len(matrix2), len(matrix2[0])
+
+    size = fil1 * fil2
+    if (type(matrix1[0][0]) is int and type(matrix2[0][0]) is int):
+        answ = []
+        pos = 0
+
+        for i in range(fil1):
+            for j in range(fil2):
+                answ.append(multComplexNumber(matrix1[i], matrix2[j]))
+
+        return answ
+
+
+    elif ((fil1 == col1) and (fil2 == col2)):
+
+        answ = []
+        column = 0
+        for x in range(fil1):
+            for y in range(fil2):
+                row = []
+                for z in range(col1):
+                    row += escalVect(matrix2[y][:], matrix1[x][z][:])
+
+                answ.append(row)
+
+        return answ

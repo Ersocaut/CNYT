@@ -1,15 +1,17 @@
 import unittest
 from QuantumTheory import *
 
-class Test(unittest.TestCase):
-    def testLong(self):
+
+class quantumTheoryTest(unittest.TestCase):
+
+    def testLength(self):
         test = [[2, -3], [1, 2]]
-        self.assertEqual(float("{0:.4f}".format(Long(test))), 4.2426)
+        self.assertEqual(float("{0:.4f}".format(Length(test))), 4.2426)
 
-    def testNormalizar(self):
-        vec = [[2, 1], [-1, 2], [0, 1], [1, 0], [3, -1], [2, 0], [0, -2], [-2, 1], [1, -3], [0, -1]]
+    def testNormalizate(self):
+        vect1 = [[2, 1], [-1, 2], [0, 1], [1, 0], [3, -1], [2, 0], [0, -2], [-2, 1], [1, -3], [0, -1]]
 
-        self.assertEqual(normalizar(vec), [[0.2948839123097942, 0.1474419561548971],
+        self.assertEqual(normalizate(vect1), [[0.2948839123097942, 0.1474419561548971],
                                               [-0.1474419561548971, 0.2948839123097942],
                                               [0.0, 0.1474419561548971],
                                               [0.1474419561548971, 0.0],
@@ -21,34 +23,39 @@ class Test(unittest.TestCase):
                                               [0.0, -0.1474419561548971]])
 
     def testBra(self):
-        vec = [[2, 1], [-1, 2], [0, 1], [1, 0], [3, -1], [2, 0], [0, -2], [-2, 1], [1, -3], [0, -1]]
-        adjointVec = [[2, -1], [-1, -2], [0, -1], [1, 0], [3, 1], [2, 0], [0, 2], [-2, -1], [1, 3], [0, 1]]
+        vect1 = [[2, 1], [-1, 2], [0, 1], [1, 0], [3, -1], [2, 0], [0, -2], [-2, 1], [1, -3], [0, -1]]
+        adjointVect1 = [[2, -1], [-1, -2], [0, -1], [1, 0], [3, 1], [2, 0], [0, 2], [-2, -1], [1, 3], [0, 1]]
 
-        self.assertEqual(adjointVec, vectorAdjunto(vec))
+        self.assertEqual(adjointVect1, adjointVector(vect1))
 
+    def testTransition(self):
+        vect1 = normalizate([[2, 1], [-1, 2], [0, 1], [1, 0], [3, -1], [2, 0], [0, -2], [-2, 1], [1, -3], [0, -1]])
+        vect2 = normalizate([[-1, -4], [2, -3], [-7, 6], [-1, 1], [-5, -3], [5, 0], [5, 8], [4, -4], [8, -7], [2, -7]])
 
-    def testTransicion(self):
-        vec1 = normalizar([[2, 1], [-1, 2], [0, 1], [1, 0], [3, -1], [2, 0], [0, -2], [-2, 1], [1, -3], [0, -1]])
-        vec2 = normalizar([[-1, -4], [2, -3], [-7, 6], [-1, 1], [-5, -3], [5, 0], [5, 8], [4, -4], [8, -7], [2, -7]])
-        self.assertEqual([-0.02055662641731377, -0.13019196730965366], transicion(vec2, vec1))
+        self.assertEqual([-0.02055662641731377, -0.13019196730965366], transicion(vect2, vect1))
 
-    def testProbabilidad(self):
+    def testProbability(self):
         prob = [[-3, -1], [0, -2], [0, 1], [2, 0]]
-        self.assertEqual(probabilidad(prob, 2), 0.05)
+        self.assertEqual(probability(prob, 2), 0.05)
 
-    def testVarianza(self):
-        psi = normalizar([[(2**(1/2))/2, 0], [0, (2**(1/2))/2]])
+    def testVariance(self):
+        raiz = math.sqrt(2) / 2
+        psi = normalizate([[raiz, 0], [0, raiz]])
         omega = [[[1, 0], [0, -1]], [[0, 1], [2, 0]]]
-        self.assertEqual(varianza(psi, omega), 4.25)
+        self.assertEqual(variance(psi, omega), 0.25)
 
-    def testDescribirObservable(self):
-        raiz = (2**(1/2)) / 2
-        psi = normalizar([[raiz, 0], [0, raiz]])
+    def testDescribeAnObservable(self):
+        raiz = math.sqrt(2) / 2
+        psi = normalizate([[raiz, 0], [0, raiz]])
         omega = [[[1, 0], [0, -1]], [[0, 1], [2, 0]]]
-        answ = describeObservable(psi, omega)
-        self.assertEqual(answ[0], 4.25)
+        answ = describeAnObservable(psi, omega)
+
+        self.assertEqual(answ[0], 0.25)
         self.assertEqual(answ[1], 2.5)
-        self.assertEqual(describeObservable(psi, [[[1, -1], [1, -1]], [[1, -1], [1, -1]]]), None)
+
+        self.assertEqual(describeAnObservable(psi, [[[1, -1], [1, -1]], [[1, -1], [1, -1]]]), None)
+
+
 
 if __name__ == '__main__':
     unittest.main()

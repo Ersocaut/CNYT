@@ -2,51 +2,57 @@ from ComplexVector import *
 import matplotlib.pyplot as plot
 import numpy as np
 
-def sistemaProbabilistico(mat,vec,times):
-    for i in range(times):
-        vec = accion(mat,vec)
-    return vec
 
-def matrizFinal(mat):
-    for i in range(len(mat)):
-        new = []
-        for j in range(len(mat[i])):
-            new.append([modulo(mat[i][j])**2,0])
-        mat[i] = new
-    return mat
+def finalMatrix(matrix):
+    row, column = len(matrix), len(matrix[0])
+    for i in range(row):
+        for j in range(column):
+            matrix[i][j] = module(matrix[i][j]) ** 2
+    return matrix
 
-def sistemaProbabilisticoCuantico(mat,vec,times):
-    cop = mat[:]
-    for i in range(times):
-        mat = productoMatrices(mat,cop)
-    return matrizFinal(mat)
 
-def accionBooleana(mat,vec):
-    if len(vec) == len(mat[0]):
-        new = [False for i in range(len(mat))]
-        for i in range(len(mat)):
-            And = True
-            for j in range(len(mat[i])):
-                And = mat[i][j] and vec[j]
-                new[i] = new[i] or And
-        return new
+def quantumProbabilisticSystem(matrix, vectIni, clicks):
+    if (clicks > 0) and (type(clicks) is int):
+        length = len(vectIni)
+        copyMatrix = matrix[:]
 
-def experimento(mat,vec,times):
-    for i in range(times):
-        vec = accionBooleana(mat,vec)
-    return vec
+        for x in range(clicks):
+            matrix = multiplicaMat(matrix, copyMatrix)
 
-def multipleSlit(mat,vec,times):
-    return sistemaProbabilistico(mat,vec,times)
+        return finalMatrix(matrix)
+    return -1
 
-def multipleSlitCuantico(mat,vec,times):
-    return sistemaProbabilisticoCuantico(mat,vec,times)
 
-def grafico( vec  ):
-    data = len( vec )
-    x = np.array([ x for x in range( data )])
-    y = np.array([ round(vec[x][0]*100,2) for x in range( data )])
+def probabilisticSystem(matrix, vectIni, clicks):
+    if (clicks >= 0) and (type(clicks) is int):
+        length = len(vectIni)
+        for x in range(clicks):
+            vectIni = actionMatrixOnVector(matrix, vectIni)
+        return vectIni
+    return -1
 
-    plot.bar( x,y , color ='g', align='center')
+
+def experimentBooleanMatrix(clicks, booleanMatrix, vectIni):
+    if (clicks >= 0 and type(clicks) is int):
+        for c in range(clicks):
+            vectIni = actionBoolMatrixOnVector(booleanMatrix, vectIni)
+
+        return vectIni
+
+
+def multipleSlitExperiment(matrix, vectIni, clicks):
+    return probabilisticSystem(matrix, vectIni, clicks)
+
+
+def multipleSlitQuantumExperiment(matrix, vectIni, clicks):
+    return quantumProbabilisticSystem(matrix, vectIni, clicks)
+
+
+def graphProbabilitiesVector(vector):
+    data = len(vector)
+    x = np.array([x for x in range(data)])
+    y = np.array([round(vector[x][0] * 100, 2) for x in range(data)])
+
+    plot.bar(x, y, color='g', align='center')
     plot.title('Probabilidades vector')
     plot.show()
