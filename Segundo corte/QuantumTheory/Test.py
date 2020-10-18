@@ -42,13 +42,13 @@ class Test(unittest.TestCase):
         self.assertEqual(varianza(psi, omega), 4.25)
 
     def testDescribirObservable(self):
-        raiz = (2**(1/2)) / 2;
-        psi = normalizar([[raiz, 0], [0, raiz]]);
-        omega = [[[1, 0], [0, -1]], [[0, 1], [2, 0]]];
+        raiz = (2**(1/2)) / 2
+        psi = normalizar([[raiz, 0], [0, raiz]])
+        omega = [[[1, 0], [0, -1]], [[0, 1], [2, 0]]]
         answ = describeObservable(psi, omega)
-        self.assertEqual(answ[0], 4.25);
-        self.assertEqual(answ[1], 2.5);
-        self.assertEqual(describeObservable(psi, [[[1, -1], [1, -1]], [[1, -1], [1, -1]]]), None);
+        self.assertEqual(answ[0], 4.25)
+        self.assertEqual(answ[1], 2.5)
+        self.assertEqual(describeObservable(psi, [[[1, -1], [1, -1]], [[1, -1], [1, -1]]]), None)
 
 if __name__ == '__main__':
     unittest.main()
