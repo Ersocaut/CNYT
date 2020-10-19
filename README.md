@@ -164,3 +164,26 @@ Librería de sistemas probabilisticos cuánticos que cumple con:
 
 ---
 
+### QuantumTheory & Observables
+
+Librerías que cumplen correspondientemente con:
+
+* Simular sistemas cuánticos, permitiendo:
+  - El sistema debe calcular la probabilidad de encontrarlo en una posición en particular.
+  - El sistema si se le da otro vector Ket debe buscar la probabilidad de transitar del primer vector al segundo.
+
+* Retos de programación y problemas:
+  - 4.3.1
+  - 4.3.2
+  - 4.4.1
+  - 4.4.2
+  
+#### Pruebas relacionadas:
+
+Quantum theory Tests:
+![](https://github.com/Ersocaut/CNYT/blob/master/image/QuantumTheoryTest.png)
+
+Observables Tests:
+![](https://github.com/Ersocaut/CNYT/blob/master/image/Observables.png)
+
+---
